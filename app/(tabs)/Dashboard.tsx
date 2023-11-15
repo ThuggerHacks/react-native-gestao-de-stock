@@ -16,8 +16,9 @@ const Dashboard = () => {
         const resp = await pegarVendas();
         setVendas(resp.data);
         if(resp.status == 200){
+            const resp1 = await pegarProdutos();
             let i = 0;
-            data.map((item:any) => {
+            resp1.data.map((item:any) => {
                 resp.data.map((item2:any) => {
                     if(item.id == item2.selectedCar){
                         console.log(item.preco)
