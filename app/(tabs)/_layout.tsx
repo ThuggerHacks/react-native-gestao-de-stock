@@ -1,3 +1,4 @@
+import React from 'react';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { Link, Tabs } from 'expo-router';
 import { Pressable, useColorScheme } from 'react-native';
@@ -23,31 +24,31 @@ export default function TabLayout() {
         tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
       }}>
       <Tabs.Screen
-        name="index"
+        name="home"
         options={{
-          title: 'Tab One',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
-          headerRight: () => (
-            <Link href="/modal" asChild>
-              <Pressable>
-                {({ pressed }) => (
-                  <FontAwesome
-                    name="info-circle"
-                    size={25}
-                    color={Colors[colorScheme ?? 'light'].text}
-                    style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
-                  />
-                )}
-              </Pressable>
-            </Link>
-          ),
+          title: 'Inicio',
+          tabBarIcon: ({ color }) => <FontAwesome name='home' color={"#fff"} size={25} />,
         }}
       />
       <Tabs.Screen
-        name="two"
+        name="Venda"
         options={{
-          title: 'Tab Two',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          title: 'Minhas Vendas',
+          tabBarIcon: ({ color }) => <FontAwesome name='gift' color={"#fff"} size={25} />,
+        }}
+      />
+      <Tabs.Screen
+        name="Dashboard"
+        options={{
+          title: 'Dashboard',
+          tabBarIcon: ({ color }) => <FontAwesome name='bar-chart' color={"#fff"} size={25} />,
+        }}
+      />
+      <Tabs.Screen
+        name="Add"
+        options={{
+          title: 'Adicionar Novo Carro',
+          tabBarIcon: ({ color }) => <FontAwesome name='plus-circle' color={"#fff"} size={25} />,
         }}
       />
     </Tabs>
